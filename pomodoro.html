@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Pomodoro</title>
+    <link rel="stylesheet" href="pomodoro.css">
+    <link rel="stylesheet" href="pomodoroResponsividade.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Pomodoro</h1>
+            <h2>Gerencie seu tempo de maneira mágica!</h2>
+        </div>
+    </header>
+    
+    <section class="main">
+         <!--Conometro-->
+        <section class="section_clock">
+
+            <audio src="Plim.wav" id="audio"></audio>
+
+            <div class="header_clock">
+                <h3>Dados da Sessão</h3>
+                <p>Acompanhe os proximos ciclos</p>
+            </div>
+            
+            <div class="modes">
+                <div class="div_CM">
+
+                    <div>
+                        <h4>Modo atual:</h4>
+                        <p>Ciclo atual do cronômetro</p>
+                    </div>
+                    <div class="current_mode" id="current_mode">
+                        <p id="foco_mode_CM">Foco</p>
+                        <p id="pausa_mode_CM">Pausa</p>
+                        <p id="pausaLonga_mode_CM">Pausa Longa</p>
+                    </div>
+
+                </div>
+
+                <div class="div_NM">
+                    <div>
+                        <h4>Próximo modo:</h4>
+                        <p>Qual ciclo será ativado</p>
+                    </div>
+
+                    <div class="next_mode_text" id="next_mode_text">
+                        <p id="foco_mode_NM">Foco</p>
+                        <p id="pausa_mode_NM">Pausa</p>
+                        <p id="pausaLonga_mode_NM">Pausa Longa</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="clock_container">
+                <div class="progress" id="progress"> <!-- controla o progresso -->
+                    <div class="clock" id="clock">
+
+                        <h5 class="time" id="time"> <!--Horario-->
+                            <span id="min">25</span>:<span id="seg">00</span> 
+                        </h5>
+
+                    </div>
+                </div>
+                <!--Clock buttons-->
+                <input type="button" value="" id="play" onclick="play()">
+                <input type="button" value="" id="pausar">
+                <input type="button" value="" id="reset">
+                <input type="button" value="" id="next_mode_inp">
+
+            </div>
+        </section>
+            
+        <!-------------Lista de tarefas------------->
+        
+        <section class="section_tasks">
+
+            <div class="header_tasks">
+                <h3>Lista de Tarefas</h3>
+                <p>Seus objetivos para essa sessão</p>
+            </div>
+
+            <div class="tarefa" id="tarefa"> <!--Tarefas container-->
+                <span id="span">Nenhuma tarefa foi listada</span>
+            </div>
+
+            <div class="task_input">
+                <input type="text" class="input_tesk" id="input_tesk" placeholder="Adicione uma tarefa">
+                <input type="button" value="Adicionar" class="confirm_task" onclick="addtask()">
+            </div>
+        </section>
+    </section>
+</body>
+<script src="pomodoro.js"></script>
+</html>
