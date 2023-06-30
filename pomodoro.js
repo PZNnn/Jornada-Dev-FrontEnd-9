@@ -23,17 +23,6 @@ function play(){
     playInp.style.opacity = '0'
     
 
-    setTimeout(function(){ 
-        /*- Quando o play for ativado, após 1s vai colocar os minutos em 24msó é executado apenas uma vez. 
-          - When play is activated, after 1 second, it will set the minutes to 24 and only execute once.*/
-        var confirm = true
-        if (confirm == true){
-           minutosInput.innerHTML = 24 
-           confirm = false
-        }
-    },1000)
-    
-
     function seg(){//segundos
 
 
@@ -42,9 +31,7 @@ function play(){
       - There's 8 modes, 1-focus, 2-break, 3-focus... 8-long break */
 
         if (troca == true){//Quando você avança um modo a var 'troca' recebe true | When you switch to a different mode, the variable 'troca' receives true.
-
-            var audio = document.getElementById('audio')
-            audio.play()
+            
             if ([1,3,5,7].includes(runs)){//se var runs for igual a 1,3,5,7, significa que é o modo atual é Foco | if var runs is equal 1,3,5,7, that means the mode is Focus
                 clearInterval(pauseSeg) 
                 clearInterval(pauseMin)
@@ -58,7 +45,6 @@ function play(){
                 pausaConfig()
                 modoAtual = "pausa"
                 troca = false
-                
             }
             else if (runs == 8){
                 clearInterval(pauseSeg) 
@@ -77,10 +63,8 @@ function play(){
 
 
     //- progresso do circulo do relogio | clock circle progress
-
     /*- subtrai a quantidade certa de graus do circulo, para que ele acabe junto com o tempo
       - remove the right amount from the degrees of the circle */
-
         if (modoAtual == 'foco'){
             progresso = progresso - 0.24
             document.documentElement.style.setProperty("--pregresso", `${progresso}deg`)
@@ -94,7 +78,8 @@ function play(){
             document.documentElement.style.setProperty("--pregresso", `${progresso}deg`)
         }
 
-        if (tempo_em_min == 0 && tempo_em_seg == 0){//quando o tempo acaba, troca de modo | when the timer ends, it switch the mode
+    //quando o tempo acaba, troca de modo | when the timer ends, it switch the mode
+        if (tempo_em_min == 0 && tempo_em_seg == 0){
             clearInterval(pauseSeg) 
             clearInterval(pauseMin)
 
@@ -121,8 +106,18 @@ function play(){
             }
         }
 
+    //Condições do relogio
+        if (tempo_em_min == 0) {//pausa se os minutos chegarem a 0 | Pause when the minutes reach 0
+            clearInterval(pauseMin)
+        }
+        if(tempo_em_seg == 0){//reseta se os segundos chegarem a 0 | reset when the seconds reach 0
+            tempo_em_seg = 60
+        }
+
+    }
+
     //Configuração de cada modo | Configuration of each mode
-        function pausaConfig(){
+    function pausaConfig(){
 
             progresso = 360
             tempo_em_min = 4
@@ -151,9 +146,8 @@ function play(){
 
             pauseSeg = setInterval(seg, 1000)
             pauseMin = setInterval(min, 60000)
-        }
-
-        function focoConfig(){
+    }
+    function focoConfig(){
             
             progresso = 360
             tempo_em_min = 24
@@ -192,9 +186,8 @@ function play(){
 
             pauseSeg = setInterval(seg, 1000)
             pauseMin = setInterval(min, 60000)
-        }
-
-        function pausaLongaConfig(){
+    }
+    function pausaLongaConfig(){
             
             progresso = 360
             tempo_em_min = 14
@@ -226,17 +219,6 @@ function play(){
 
             pauseSeg = setInterval(seg, 1000)
             pauseMin = setInterval(min, 60000)
-        }
-
-
-    //Condições do relogio
-        if (tempo_em_min == 0) {//pausa se os minutos chegarem a 0 | Pause when the minutes reach 0
-            clearInterval(pauseMin)
-        }
-        if(tempo_em_seg == 0){//reseta se os segundos chegarem a 0 | reset when the seconds reach 0
-            tempo_em_seg = 60
-        }
-
     }
 
     function min(){//minutos | minutes
@@ -265,8 +247,6 @@ function pausar() {
     pauseInp.style.opacity = '0'
     playInp.style.opacity = '0.9'
 }
-
-
 
 
 // Reset no relogio | clock reset
@@ -335,15 +315,13 @@ function next_mode(){
 
 
 
-/*---------------TAREFAS | TASKs---------------*/
+/*---------------TAREFAS | TASKS---------------*/
 
 const tarefaContainer = document.getElementById("tarefa")
 const taskInput = document.getElementById("input_tesk")
 
-
 var taskCount = 0 //Conta quantas tarefas existem e também atribui a tarefa seu proprio numero | Count how many tasks exist and also assign each task its own number.
-
-function addtask(){
+function addTask(){
 
     if (taskInput.value == ""){
         alert('você deve adicionar um texto a tarefa')

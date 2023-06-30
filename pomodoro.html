@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,14 +17,14 @@
     </header>
     
     <section class="main">
-         <!--Conometro-->
+         <!--Cronômetro-->
         <section class="section_clock">
 
             <audio src="Plim.wav" id="audio"></audio>
 
             <div class="header_clock">
                 <h3>Dados da Sessão</h3>
-                <p>Acompanhe os proximos ciclos</p>
+                <p>Acompanhe os próximos ciclos</p>
             </div>
             
             <div class="modes">
@@ -58,16 +58,16 @@
             </div>
 
             <div class="clock_container">
-                <div class="progress" id="progress"> <!-- controla o progresso -->
+                <div class="progress" id="progress"> <!--Controla o progresso-->
                     <div class="clock" id="clock">
 
-                        <h5 class="time" id="time"> <!--Horario-->
+                        <h5 class="time" id="time"> <!--Horário-->
                             <span id="min">25</span>:<span id="seg">00</span> 
                         </h5>
 
                     </div>
                 </div>
-                <!--Clock buttons-->
+                <!--Botões do Cronômetro-->
                 <input type="button" value="" id="play" onclick="play()">
                 <input type="button" value="" id="pausar">
                 <input type="button" value="" id="reset">
@@ -82,16 +82,16 @@
 
             <div class="header_tasks">
                 <h3>Lista de Tarefas</h3>
-                <p>Seus objetivos para essa sessão</p>
+                <p>Seus objetivos para esta sessão</p>
             </div>
 
-            <div class="tarefa" id="tarefa"> <!--Tarefas container-->
+            <div class="tarefa" id="tarefa"> <!--Container de Tarefas-->
                 <span id="span">Nenhuma tarefa foi listada</span>
             </div>
 
             <div class="task_input">
-                <input type="text" class="input_tesk" id="input_tesk" placeholder="Adicione uma tarefa">
-                <input type="button" value="Adicionar" class="confirm_task" onclick="addtask()">
+                <input type="text" class="input_task" id="input_task" placeholder="Adicione uma tarefa">
+                <input type="button" value="Adicionar" class="confirm_task" onclick="addTask()">
             </div>
         </section>
     </section>
