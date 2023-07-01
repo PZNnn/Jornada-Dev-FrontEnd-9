@@ -318,7 +318,7 @@ function next_mode(){
 /*---------------TAREFAS | TASKS---------------*/
 
 const tarefaContainer = document.getElementById("tarefa")
-const taskInput = document.getElementById("input_tesk")
+const taskInput = document.getElementById("input_task")
 
 var taskCount = 0 //Conta quantas tarefas existem e também atribui a tarefa seu proprio numero | Count how many tasks exist and also assign each task its own number.
 function addTask(){
