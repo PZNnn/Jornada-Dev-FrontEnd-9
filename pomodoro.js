@@ -21,10 +21,8 @@ function play(){
     pauseInp.style.zIndex = '2'
     pauseInp.style.opacity = '0.9'
     playInp.style.opacity = '0'
-    
 
     function seg(){//segundos
-
 
     //botão next mode
     /*- Total possui 8 modos, sendo 1-foco, 2-pausa, 3-foco... 8-pausa longa.
@@ -34,27 +32,23 @@ function play(){
             
             if ([1,3,5,7].includes(runs)){//se var runs for igual a 1,3,5,7, significa que é o modo atual é Foco | if var runs is equal 1,3,5,7, that means the mode is Focus
                 clearInterval(pauseSeg) 
-                clearInterval(pauseMin)
                 focoConfig()
                 modoAtual = "foco"
                 troca = false
             }
             else if ([2,4,6].includes(runs)){
                 clearInterval(pauseSeg) 
-                clearInterval(pauseMin)
                 pausaConfig()
                 modoAtual = "pausa"
                 troca = false
             }
             else if (runs == 8){
                 clearInterval(pauseSeg) 
-                clearInterval(pauseMin)
                 pausaLongaConfig()
                 modoAtual = "pausaLonga"
                 troca = false
             } 
         }
-
         tempo_em_seg = tempo_em_seg - 1
         siteTitle.innerHTML = `Pomodoro | ${tempo_em_min.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})}:${tempo_em_seg.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})}`
         segundosInput.innerHTML = tempo_em_seg.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
@@ -81,25 +75,30 @@ function play(){
     //quando o tempo acaba, troca de modo | when the timer ends, it switch the mode
         if (tempo_em_min == 0 && tempo_em_seg == 0){
             clearInterval(pauseSeg) 
-            clearInterval(pauseMin)
-
+            
             var audio = document.getElementById('audio')
             audio.play()
             runs = runs + 1
+            
             if (runs > 8){
                 runs = 1
             }
+
             if (runs == 8) {
+                pausaLongaConfig()
                 modoAtual = 'pausaLonga'
             }
-            if (modoAtual == "foco"){ //modo FOCO para modo PAUSA | Focus mode to Break mode
+
+            else if (modoAtual == "foco"){ //modo FOCO para modo PAUSA | Focus mode to Break mode
                 pausaConfig()
                 modoAtual = "pausa"
             }
+
             else if (modoAtual == "pausa"){//modo PAUSA para modo FOCO | Break mode to Focus mode
                 focoConfig()
                 modoAtual = "foco"
             }
+
             else if (modoAtual == 'pausaLonga'){// modo Pausa longa para modo Foco | Long break mode to Focus mode
                 focoConfig()
                 modoAtual = "foco"
@@ -108,12 +107,13 @@ function play(){
 
     //Condições do relogio
         if (tempo_em_min == 0) {//pausa se os minutos chegarem a 0 | Pause when the minutes reach 0
-            clearInterval(pauseMin)
+            
         }
         if(tempo_em_seg == 0){//reseta se os segundos chegarem a 0 | reset when the seconds reach 0
             tempo_em_seg = 60
+            tempo_em_min = tempo_em_min - 1
+            minutosInput.innerHTML = tempo_em_min.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
         }
-
     }
 
     //Configuração de cada modo | Configuration of each mode
@@ -144,8 +144,8 @@ function play(){
             document.getElementById('pausaLonga_mode_NM').style.display = 'none'
             document.getElementById('next_mode_text').style.width = '90px'
 
-            pauseSeg = setInterval(seg, 1000)
-            pauseMin = setInterval(min, 60000)
+            pauseSeg = setInterval(seg, 50)
+            
     }
     function focoConfig(){
             
@@ -184,8 +184,8 @@ function play(){
                 document.getElementById('pausaLonga_mode_NM').style.display = 'block'
             }
 
-            pauseSeg = setInterval(seg, 1000)
-            pauseMin = setInterval(min, 60000)
+            pauseSeg = setInterval(seg, 50)
+            
     }
     function pausaLongaConfig(){
             
@@ -212,22 +212,12 @@ function play(){
             document.getElementById('pausa_mode_NM').style.display = 'none'
             document.getElementById('pausaLonga_mode_NM').style.display = 'none'
             document.getElementById('next_mode_text').style.width = '90px'
-            
-
-
             document.getElementById('progress').style.background = 'conic-gradient(var(--modePausaLonga_color) var(--pregresso), rgb(35, 35, 38) 0deg)'
-
-            pauseSeg = setInterval(seg, 1000)
-            pauseMin = setInterval(min, 60000)
+            
+            pauseSeg = setInterval(seg, 50)       
     }
 
-    function min(){//minutos | minutes
-        
-        tempo_em_min = tempo_em_min - 1
-        minutosInput.innerHTML = tempo_em_min.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
-    }
-    pauseSeg = setInterval(seg, 1000)
-    pauseMin = setInterval(min, 60000)
+    pauseSeg = setInterval(seg, 50)
     /*- É necessario atribuir o 'setInterval' a uma variavel, para que você possa pausalo com o 'clearInterval()'
       - You need to assign 'setInterval' to a variable , so you can pause it with 'clearInterval()'*/
 }
@@ -239,7 +229,7 @@ function play(){
 document.getElementById("pausar").addEventListener("click", pausar)
 function pausar() {
     clearInterval(pauseSeg) 
-    clearInterval(pauseMin)
+    
 
 
     // Mostra botão play | show the play button
@@ -263,7 +253,7 @@ function reset(){
         document.documentElement.style.setProperty("--pregresso", `${progresso}deg`)
         
         clearInterval(pauseSeg) 
-        clearInterval(pauseMin)
+        
         troca = true
         play()
     }
@@ -277,7 +267,7 @@ function reset(){
         document.documentElement.style.setProperty("--pregresso", `${progresso}deg`)
         
         clearInterval(pauseSeg) 
-        clearInterval(pauseMin)
+        
         troca = true
         play()
     }
@@ -292,7 +282,7 @@ function reset(){
         document.documentElement.style.setProperty("--pregresso", `${progresso}deg`)
         
         clearInterval(pauseSeg) 
-        clearInterval(pauseMin)
+        
         troca = true
         play()
     }
@@ -321,10 +311,20 @@ const tarefaContainer = document.getElementById("tarefa")
 const taskInput = document.getElementById("input_task")
 
 var taskCount = 0 //Conta quantas tarefas existem e também atribui a tarefa seu proprio numero | Count how many tasks exist and also assign each task its own number.
+taskInput.addEventListener('keydown', (event) =>{
+    if (event.key === 'Enter'){
+        event.preventDefault()  
+        addTask()
+    }
+})
 function addTask(){
 
-    if (taskInput.value == ""){
-        alert('você deve adicionar um texto a tarefa')
+    if (taskInput.value.trim() == ""){//caso o usuario não por nada
+        setTimeout(()=>{
+            taskInput.classList.add('shake-animation')
+        },5)
+        taskInput.classList.remove('shake-animation')
+        taskInput.value = ''
     }
 
     else{
@@ -340,7 +340,12 @@ function addTask(){
         var labelCreate = document.createElement("label")
         var inputCreate = document.createElement("input")
         var taskText = document.createElement(`p`)
+        var moveUp = document.createElement('button')
+        var moveDown = document.createElement('button')
         var deleteInp = document.createElement('input')
+        var div1 = document.createElement('div')
+        var div2 = document.createElement('div')
+        
 
         labelCreate.setAttribute("for", `checkbox${taskCount}`)
         labelCreate.setAttribute("id", `deleteTask${taskCount}`)
@@ -353,32 +358,53 @@ function addTask(){
         deleteInp.setAttribute("type" , "button")
         deleteInp.setAttribute("class" , "deleteTask")
         deleteInp.setAttribute("id" , `deleteTask${taskCount}`)
-        deleteInp.setAttribute("onclick" , `deletTask()`)
+        deleteInp.setAttribute("onclick" , `deletTask(this)`)
 
+        moveUp.setAttribute("onclick" , `moveTaskUp(this)`)
+        moveUp.setAttribute("id" , `moveTaskUp`)
+        moveDown.setAttribute("onclick" , `moveTaskDown(this)`)
+        moveDown.setAttribute("id" , `moveTaskDown`)
+
+        div1.setAttribute('id', 'taskDiv1')
+        div2.setAttribute('id', 'taskDiv2')
+        
         taskText.innerHTML = taskInput.value
 
-        labelCreate.appendChild(inputCreate)
-        labelCreate.appendChild(taskText)
-        labelCreate.appendChild(deleteInp)
+        div1.appendChild(inputCreate)
+        div1.appendChild(taskText)
+        labelCreate.appendChild(div1)
 
-        tarefaContainer.appendChild(labelCreate) 
+        div2.appendChild(moveUp)
+        div2.appendChild(moveDown)
+        div2.appendChild(deleteInp)
+        labelCreate.appendChild(div2)
+
+        tarefaContainer.appendChild(labelCreate)
+        taskInput.value = ''
     }
-
 }
 
-function deletTask(){//deleta a tarefa selecionada | it will delete the task
-    var deletButton = document.querySelectorAll('.deleteTask')
+function moveTaskUp(btn) {//coloca a task uma casa acima
+    var div1Container = btn.parentNode
+    var taskContainer = div1Container.parentNode
+    var prevTask = taskContainer.previousElementSibling
+    taskContainer.parentNode.insertBefore(taskContainer, prevTask)
+    setTimeout(function() {
+        taskContainer.classList.remove("transition-animation");
+    }, 300)
+}
 
-    deletButton.forEach(function(buttons){
-        buttons.addEventListener('click', function(event){
-            var buttonId = event.target.id
+function moveTaskDown(btn) {//coloca a task uma casa abaixo
+    var div1Container = btn.parentNode
+    var taskContainer = div1Container.parentNode
+    var nextTask = taskContainer.nextElementSibling
+    taskContainer.parentNode.insertBefore(nextTask, taskContainer)
+    setTimeout(function() {
+        taskContainer.classList.remove("transition-animation");
+    }, 300)
+}
 
-            console.log("botão id " + buttonId)
-            
-            var taskElement = document.getElementById(buttonId)
-            if (taskElement) {
-                taskElement.remove()
-            }
-        })
-    })
+function deletTask(btn){//deleta a tarefa selecionada | it will delete the task
+    var deletId = btn.id
+    document.getElementById(deletId).remove()
 }
