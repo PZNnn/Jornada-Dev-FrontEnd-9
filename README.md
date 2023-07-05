@@ -19,13 +19,15 @@ Projeto da minha jornada de aprendizado Front-End
   tablet/celular, onde os botões de pause, next e reset estão visíveis).</p>
 
 
-Funcionalidades do site:
+Funcionalidades do site:<br>
+obs: Relógio está acelerado para motivos didaticos e toda vez que troca de modo, um som de sino é tocado para avisar o usuário
 
-https://github.com/PZNnn/Jornada-Dev-FrontEnd-9/assets/109975953/a84e2315-95a2-48b3-acf7-4977f410eb9d
+[https://github.com/PZNnn/Jornada-Dev-FrontEnd-9/assets/109975953/a84e2315-95a2-48b3-acf7-4977f410eb9d](https://github.com/PZNnn/Jornada-Dev-FrontEnd-9/assets/109975953/240b61ae-b5e9-4b0a-a70d-acc77de296cf)
 
 Responsividade do site:
 
-https://github.com/PZNnn/Jornada-Dev-FrontEnd-9/assets/109975953/82a018c4-d775-4933-9b85-fb023edc7b1d
+[https://github.com/PZNnn/Jornada-Dev-FrontEnd-9/assets/109975953/82a018c4-d775-4933-9b85-fb023edc7b1d](https://github.com/PZNnn/Jornada-Dev-FrontEnd-9/assets/109975953/797f65f7-1fe8-4bcc-9a79-d4acb1a28a23
+)
 
 
 Em diferentes dispositivos
