@@ -144,7 +144,7 @@ function play(){
             document.getElementById('pausaLonga_mode_NM').style.display = 'none'
             document.getElementById('next_mode_text').style.width = '90px'
 
-            pauseSeg = setInterval(seg, 50)
+            pauseSeg = setInterval(seg, 1000)
             
     }
     function focoConfig(){
@@ -184,7 +184,7 @@ function play(){
                 document.getElementById('pausaLonga_mode_NM').style.display = 'block'
             }
 
-            pauseSeg = setInterval(seg, 50)
+            pauseSeg = setInterval(seg, 1000)
             
     }
     function pausaLongaConfig(){
@@ -214,10 +214,10 @@ function play(){
             document.getElementById('next_mode_text').style.width = '90px'
             document.getElementById('progress').style.background = 'conic-gradient(var(--modePausaLonga_color) var(--pregresso), rgb(35, 35, 38) 0deg)'
             
-            pauseSeg = setInterval(seg, 50)       
+            pauseSeg = setInterval(seg, 1000)       
     }
 
-    pauseSeg = setInterval(seg, 50)
+    pauseSeg = setInterval(seg, 1000)
     /*- É necessario atribuir o 'setInterval' a uma variavel, para que você possa pausalo com o 'clearInterval()'
       - You need to assign 'setInterval' to a variable , so you can pause it with 'clearInterval()'*/
 }
@@ -389,9 +389,6 @@ function moveTaskUp(btn) {//coloca a task uma casa acima
     var taskContainer = div1Container.parentNode
     var prevTask = taskContainer.previousElementSibling
     taskContainer.parentNode.insertBefore(taskContainer, prevTask)
-    setTimeout(function() {
-        taskContainer.classList.remove("transition-animation");
-    }, 300)
 }
 
 function moveTaskDown(btn) {//coloca a task uma casa abaixo
@@ -399,9 +396,6 @@ function moveTaskDown(btn) {//coloca a task uma casa abaixo
     var taskContainer = div1Container.parentNode
     var nextTask = taskContainer.nextElementSibling
     taskContainer.parentNode.insertBefore(nextTask, taskContainer)
-    setTimeout(function() {
-        taskContainer.classList.remove("transition-animation");
-    }, 300)
 }
 
 function deletTask(btn){//deleta a tarefa selecionada | it will delete the task
