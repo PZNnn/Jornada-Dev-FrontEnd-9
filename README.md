@@ -12,6 +12,8 @@ Projeto da minha jornada de aprendizado Front-End
   percebi que estava desenvolvendo muitos sites em que dedicava a maior parte do tempo codificando HTML e CSS.</p>
 
 ----
+Site:
+https://pomodoro-git-pznnn.netlify.app
 
 <h3>Aqui está um exemplo do site, o primeiro Gif é apenas mostrando a funcionalidade do site, o segundo é sua responsividade</h3>
 
