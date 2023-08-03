@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="title">Pomodoro</title>
+    <link rel="icon" type="image/x-icon" href="icon.png">
     <link rel="stylesheet" href="pomodoro.css">
     <link rel="stylesheet" href="pomodoroResponsividade.css">
 </head>
@@ -19,40 +20,41 @@
     <section class="main">
          <!--Cronômetro-->
         <section class="section_clock">
+            <div>
+                <audio src="Plim.wav" id="audio"></audio>
 
-            <audio src="Plim.wav" id="audio"></audio>
-
-            <div class="header_clock">
-                <h3>Dados da Sessão</h3>
-                <p>Acompanhe os próximos ciclos</p>
-            </div>
-            
-            <div class="modes">
-                <div class="div_CM">
-
-                    <div>
-                        <h4>Modo atual:</h4>
-                        <p>Ciclo atual do cronômetro</p>
-                    </div>
-                    <div class="current_mode" id="current_mode">
-                        <p id="foco_mode_CM">Foco</p>
-                        <p id="pausa_mode_CM">Pausa</p>
-                        <p id="pausaLonga_mode_CM">Pausa Longa</p>
-                    </div>
-
+                <div class="header_clock">
+                    <h3>Dados da Sessão</h3>
+                    <p>Acompanhe os próximos ciclos</p>
                 </div>
+                
+                <div class="modes">
+                    <div class="div_CM">
 
-                <div class="div_NM">
-                    <div>
-                        <h4>Próximo modo:</h4>
-                        <p>Qual ciclo será ativado</p>
+                        <div>
+                            <h4>Modo atual:</h4>
+                            <p>Ciclo atual do cronômetro</p>
+                        </div>
+                        <div class="current_mode" id="current_mode">
+                            <p id="foco_mode_CM">Foco</p>
+                            <p id="pausa_mode_CM">Pausa</p>
+                            <p id="pausaLonga_mode_CM">Pausa Longa</p>
+                        </div>
+
                     </div>
 
-                    <div class="next_mode_text" id="next_mode_text">
-                        <p id="foco_mode_NM">Foco</p>
-                        <p id="pausa_mode_NM">Pausa</p>
-                        <p id="pausaLonga_mode_NM">Pausa Longa</p>
+                    <div class="div_NM">
+                        <div>
+                            <h4>Próximo modo:</h4>
+                            <p>Qual ciclo será ativado</p>
+                        </div>
 
+                        <div class="next_mode_text" id="next_mode_text">
+                            <p id="foco_mode_NM">Foco</p>
+                            <p id="pausa_mode_NM">Pausa</p>
+                            <p id="pausaLonga_mode_NM">Pausa Longa</p>
+
+                        </div>
                     </div>
                 </div>
             </div>
