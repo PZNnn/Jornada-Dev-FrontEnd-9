@@ -1,13 +1,13 @@
 # Jornada-Dev-FrontEnd-9
 Projeto da minha jornada de aprendizado Front-End
 
-<h2>Site Pomodoro</h2>
+<h2>Site Pomodoro com localStorage!</h2>
 
 - Site feito para organizar suas tarefas usando metodo Pomodoro, junto com uma aba para adicionar e organizar suas tarefas
 
 - Oque eu aprendi?
 <p>Nesse projeto, utilizei bastante JavaScript e foi uma experiência de aprendizado incrível para mim, além de ser um sinal claro de que estou evoluindo. Enfrentei diversos desafios, mas sempre encontrei maneiras 
-  e resolvê-los, especialmente com a ajuda dos meus projetos anteriores. Aprendi uma coisa em particular, que foi a criação de elementos HTML (pai e filhos) usando JavaScript. Embora não tenha aprendido tantas coisas 
+  e resolvê-los, especialmente com a ajuda dos meus projetos anteriores. Aprendi uma coisa em particular, que foi a criação de elementos HTML (pai e filhos) usando JavaScript. Após algumas atualizações do código, adicionei também LocalStorage, que vai deixar a utilização do site muito mais agradável, fazendo com que quando você fecha o site e abra novamente, ele mantêm as tarefas adicionadas pelo usuário, a ordem dela e se ela já foi marcada como feita. E algo interessante que gostei de ter aprendido foi a utilização do This, usei ele nos botões de delete_Task para pegar o ID do botão e excluí-lo. Aprendi tantas coisas 
   novas, fortaleci conceitos importantes para a programação, que serão amplamente utilizados na maioria dos sites que pretendo desenvolver no futuro! Optei por focar em um desafio mais voltado para JavaScript, pois 
   percebi que estava desenvolvendo muitos sites em que dedicava a maior parte do tempo codificando HTML e CSS.</p>
 
